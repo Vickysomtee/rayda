@@ -4,3 +4,5 @@ metadata:
   name: rayda-app
   labels:
     name: rayda-app
+    pod-security.kubernetes.io/enforce: "restricted"
+    pod-security.kubernetes.io/enforce-version: "latest"
