@@ -1,2 +1,8 @@
 terraform/.terraform/*
 terraform/plan.out
+
+# .tfstate files
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/*.lock.hcl
+
