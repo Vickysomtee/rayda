@@ -3,10 +3,15 @@ This Documentation extensively covers every details about this assessment. From 
 This implementation adheres to the following DevOps Concepts
 
 Multi Stage Docker file             :white_check_mark:
+
 CI/CD Pipeline                      :white_check_mark:
+
 Monitoring                          :white_check_mark:
+
 Infrastructure as Code              :white_check_mark:
+
 Security                            :white_check_mark:
+
 Automation                          :white_check_mark:
 
 This documentations assumes you already have kubernetes and kubectl installed.
