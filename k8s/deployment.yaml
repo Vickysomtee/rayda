@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rayda-app-deployment
+  namespace: rayda-app
+  labels:
+    app: rayda-app
+spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate  
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rayda-app
+  template:
+    metadata:
+      labels:
+        app: rayda-app  
+    spec:
+      containers:
+      - name: rayda-container
+        image: ghcr.io/vickysomtee/rayda:v1
+        ports:
+        - containerPort: 8000
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m" 
+
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          timeoutSeconds: 5
+          successThreshold: 1
+          failureThreshold: 3    

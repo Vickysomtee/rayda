@@ -1,0 +1,3 @@
+terraform/.terraform/*
+terraform/plan.out
+main.py
