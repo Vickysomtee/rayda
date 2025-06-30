@@ -1,5 +1,14 @@
 This Documentation extensively covers every details about this assessment. From App Deployment, Monitoring, IAC to Operations
 
+This implementation adheres to the following DevOps Concepts
+
+Multi Stage Docker file             :white_check_mark:
+CI/CD Pipeline                      :white_check_mark:
+Monitoring                          :white_check_mark:
+Infrastructure as Code              :white_check_mark:
+Security                            :white_check_mark:
+Automation                          :white_check_mark:
+
 This documentations assumes you already have kubernetes and kubectl installed.
 
 ## Infrastructure
@@ -37,13 +46,20 @@ bash monitoring/deploy.sh
 
 Below are required operations to support the kubernester cluster.
 
+### Horizontal Pod Autoscaling (HPA)
+Automate pod scaling based on CPU usage to handle unpredictable traffic spikes.
+```
+kubectl apply -f k8s/hpa.yaml
+```
+
 ### Role Based access control
 
 The below command gives the service account that was created earlier a read only access to the running pod
 
 ```
-kubectl apply -f k8s/security/rabac.yaml
+kubectl apply -f k8s/security/rbac.yaml
 ```
+This creates a Horizontal Pod Autoscaler targeting 50% CPU utilization, with a minimum of 1 and a maximum of 3 pods.
 
 ### Cluster tear down
 The `clean-up.sh` file is implemented for a graceful teardown of the infrastructure. This ensures that every single resource in AWS is deleted.
