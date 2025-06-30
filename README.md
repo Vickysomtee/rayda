@@ -1,10 +1,10 @@
 This Documentation extensively covers every details about this assessment. From App Deployment, Monitoring, IAC to Operations
 
-This documentations assumes you already have kubernetes and kubectl installed. w
+This documentations assumes you already have kubernetes and kubectl installed.
 
 ## Infrastructure
 
-Terraform is being used to provision a VPC and kubernetes cluster on AWS EKS. 
+Terraform is being used to provision a VPC and kubernetes cluster on AWS EKS. In this case there is CI/CD pipeline in the `.github/workflows` folder to automate the entire terraform deployment which can only be triggered manually.
 
 ## Rayda Deployment
 
